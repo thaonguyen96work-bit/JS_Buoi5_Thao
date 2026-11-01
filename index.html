@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bài tập JS buổi 5</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-100 text-slate-800 font-sans">
+    <main class="max-w-3xl mx-auto px-4 py-6">
+      <!-- Tabs -->
+      <div class="flex gap-2 overflow-x-auto pb-2 mb-3">
+        <button
+          data-tab="s1"
+          class="tab-btn shrink-0 px-4 py-2 rounded-lg border"
+        >
+          Tuyển sinh
+        </button>
+        <button
+          data-tab="s2"
+          class="tab-btn shrink-0 px-4 py-2 rounded-lg border"
+        >
+          Tiền điện
+        </button>
+        <button
+          data-tab="s3"
+          class="tab-btn shrink-0 px-4 py-2 rounded-lg border"
+        >
+          Thuế thu nhập
+        </button>
+        <button
+          data-tab="s4"
+          class="tab-btn shrink-0 px-4 py-2 rounded-lg border"
+        >
+          Tiền cáp
+        </button>
+      </div>
+
+      <!-- Bài 1: Tuyển sinh -->
+      <section
+        id="s1"
+        class="tab-panel bg-white border border-slate-200 rounded-xl p-5"
+      >
+        <h2 class="text-lg font-semibold">Quản lý tuyển sinh</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="sm:col-span-2">
+            <label for="chuan" class="block text-sm font-semibold mb-1"
+              >Điểm chuẩn</label
+            >
+            <input
+              id="chuan"
+              type="number"
+              step="0.25"
+              min="0"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label for="khuvuc" class="block text-sm font-semibold mb-1"
+              >Khu vực</label
+            >
+            <select
+              id="khuvuc"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="X">X (không ưu tiên)</option>
+              <option value="A">A (+2)</option>
+              <option value="B">B (+1)</option>
+              <option value="C">C (+0.5)</option>
+            </select>
+          </div>
+          <div>
+            <label for="doituong" class="block text-sm font-semibold mb-1"
+              >Đối tượng</label
+            >
+            <select
+              id="doituong"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="0">0 (không ưu tiên)</option>
+              <option value="1">1 (+2.5)</option>
+              <option value="2">2 (+1.5)</option>
+              <option value="3">3 (+1)</option>
+            </select>
+          </div>
+          <div>
+            <label for="m1" class="block text-sm font-semibold mb-1"
+              >Điểm môn 1</label
+            >
+            <input
+              id="m1"
+              type="number"
+              step="0.25"
+              min="0"
+              max="10"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label for="m2" class="block text-sm font-semibold mb-1"
+              >Điểm môn 2</label
+            >
+            <input
+              id="m2"
+              type="number"
+              step="0.25"
+              min="0"
+              max="10"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label for="m3" class="block text-sm font-semibold mb-1"
+              >Điểm môn 3</label
+            >
+            <input
+              id="m3"
+              type="number"
+              step="0.25"
+              min="0"
+              max="10"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
+        <button
+          id="btn1"
+          class="mt-4 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+        >
+          Xét tuyển
+        </button>
+        <div id="out1" class="hidden"></div>
+      </section>
+
+      <!-- Bài 2: Tiền điện -->
+      <section
+        id="s2"
+        class="tab-panel hidden bg-white border border-slate-200 rounded-xl p-5"
+      >
+        <h2 class="text-lg font-semibold">Tính tiền điện</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="ten2" class="block text-sm font-semibold mb-1"
+              >Họ tên</label
+            >
+            <input
+              id="ten2"
+              type="text"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label for="kw" class="block text-sm font-semibold mb-1"
+              >Số kW tiêu thụ</label
+            >
+            <input
+              id="kw"
+              type="number"
+              min="0"
+              step="any"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
+        <button
+          id="btn2"
+          class="mt-4 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+        >
+          Tính tiền điện
+        </button>
+        <div id="out2" class="hidden"></div>
+      </section>
+
+      <!-- Bài 3: Thuế thu nhập cá nhân -->
+      <section
+        id="s3"
+        class="tab-panel hidden bg-white border border-slate-200 rounded-xl p-5"
+      >
+        <h2 class="text-lg font-semibold">Tính thuế thu nhập cá nhân</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="sm:col-span-2">
+            <label for="ten3" class="block text-sm font-semibold mb-1"
+              >Họ tên</label
+            >
+            <input
+              id="ten3"
+              type="text"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label for="thunhap" class="block text-sm font-semibold mb-1"
+              >Tổng thu nhập năm (triệu)</label
+            >
+            <input
+              id="thunhap"
+              type="number"
+              min="0"
+              step="any"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label for="phuthuoc" class="block text-sm font-semibold mb-1"
+              >Số người phụ thuộc</label
+            >
+            <input
+              id="phuthuoc"
+              type="number"
+              min="0"
+              step="1"
+              value="0"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="cachtinh" class="block text-sm font-semibold mb-1"
+              >Cách áp thuế suất</label
+            >
+            <select
+              id="cachtinh"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="bac">
+                Theo bảng đề bài (áp một thuế suất của bậc)
+              </option>
+              <option value="luytien">Lũy tiến từng phần (theo luật)</option>
+            </select>
+          </div>
+        </div>
+        <button
+          id="btn3"
+          class="mt-4 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+        >
+          Tính thuế
+        </button>
+        <div id="out3" class="hidden"></div>
+      </section>
+
+      <!-- Bài 4: Tiền cáp -->
+      <section
+        id="s4"
+        class="tab-panel hidden bg-white border border-slate-200 rounded-xl p-5"
+      >
+        <h2 class="text-lg font-semibold">Tính tiền cáp</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="ma" class="block text-sm font-semibold mb-1"
+              >Mã khách hàng</label
+            >
+            <input
+              id="ma"
+              type="text"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label for="loai" class="block text-sm font-semibold mb-1"
+              >Loại khách hàng</label
+            >
+            <select
+              id="loai"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Chọn loại khách hàng</option>
+              <option value="nhadan">Nhà dân</option>
+              <option value="doanhnghiep">Doanh nghiệp</option>
+            </select>
+          </div>
+          <div id="ketnoiWrap" class="hidden">
+            <label for="ketnoi" class="block text-sm font-semibold mb-1"
+              >Số kết nối</label
+            >
+            <input
+              id="ketnoi"
+              type="number"
+              min="0"
+              step="1"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label for="kenh" class="block text-sm font-semibold mb-1"
+              >Số kênh cao cấp</label
+            >
+            <input
+              id="kenh"
+              type="number"
+              min="0"
+              step="1"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
+        <button
+          id="btn4"
+          class="mt-4 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+        >
+          Tính hóa đơn
+        </button>
+        <div id="out4" class="hidden"></div>
+      </section>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
